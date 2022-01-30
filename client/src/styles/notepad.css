@@ -1,0 +1,95 @@
+* {
+    font-family: Arial, Helvetica, sans-serifß;
+}
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+  background-color: #EEE;
+  height:90vh;
+  margin-top: 60px !important;
+  margin: 30px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 70px;
+  font-family: Arial;
+  
+}
+.mainTitle {
+    font-size: 24px;
+    margin-top: 15px;
+    margin-left: 50px;
+    position: absolute;
+}
+
+.savebtn {
+    background-color: #39ACDC;
+    border: none;
+}
+
+.item-a {
+  grid-column-start: 1;
+  grid-column-end: five;
+  grid-row-start: row1-start;
+  grid-row-end: 3;
+}
+
+input {
+    width:100%;
+    height:30px;
+    border-color: #CCC;
+    border-radius: 4px;
+    padding-left: 5px;
+    
+}
+button {
+    font-size: 14px;
+    padding:4px 6px;
+     border-color: #CCC;
+     border-radius: 4px;
+     
+     
+}
+
+.notepad-title-input {
+  grid-column: 1 / span 3;
+  align-self: center;
+  margin-left: 30px;
+}
+
+.view-stats{
+  grid-column: 10 / span 1;
+  justify-self: end;
+   align-self: center;
+   background-color: #EEE;
+    
+}
+
+.view-stats-btn { 
+    background-color: #EEE;
+}
+
+.save-btn {
+background-color: #39ACDC ;
+color:#EEE;
+}
+
+.delete-btn {
+    background-color: #EC3646;
+    color:#EEE;
+}
+
+.save{
+  grid-column: 11 / span 1;
+  justify-self: center;  
+   align-self: center;
+}
+
+
+.delete{
+  grid-column: 12 / span 1;
+  justify-self: start; 
+   align-self: center;
+}
