@@ -8,8 +8,8 @@ export const upDateData = function (id, data) {
    return axios.put("/api/data/" + id, data);
  };
 
-export const postData = function (data) {
-    return axios.post("/api/data" + data);
+export const createData = function (data) {
+    return axios.post("/api/data/" + data);
 }
 
  export const deleteData = function (id) {
