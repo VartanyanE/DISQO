@@ -4,53 +4,89 @@ import "../styles/notepad.css";
 
 const Notepad = () => {
     const [fetchedData, setFetchedData] = useState([{}]);
-    const [data, setData] = useState({});
+    const [notepadTitle, setNotepadTitle] = useState("");
+    const [noteTitle, setNoteTitle] = useState("");
+    const [note, setNote] = useState("");
+
+
 
   useEffect(() => {
    
-  }, [data]);
+  }, []);
     
     
     console.log(fetchedData);
-    console.log(data);
+   
 
 
 
-    const handleSubmit = async (event) => {
+    const submitNotepadTitle = async (event) => {
         event.preventDefault();
-        localStorage.setItem("noteTitle", data.notepadTitle);
-        console.log(localStorage.getItem("noteTitle"));
+        localStorage.setItem("notepadTitle", notepadTitle);
+        
+        await setNotepadTitle("");
 
 
-    }
+      }
+
+      const submitNote = async (event) => {
+        event.preventDefault();
+        localStorage.setItem("noteTitle", noteTitle);
+         localStorage.setItem("note", note);
+
+         await setNoteTitle("");
+         await setNote("");
+
+      }
+
+
     return (
       <div className="container">
         <div className="mainTitle">Notepad Application </div>
         <div className="card">
           <div className="notepad-title">
-            Notepad Title <br />
-            <input className="input-title" placeholder="My notepad title..." />
+            <p>Notepad Title </p>
+            <br />
+            
+            <input className="input-title" placeholder="My notepad title..." 
+            value={notepadTitle}
+            onChange={(e) =>
+              setNotepadTitle(e.target.value )
+            } />
           </div>
           <div className="title-btns">
-            <button>View Stats</button>
-            <button>Save</button>
-            <button>Delete</button>
+            <button className="stats-btn">View Stats</button>
+            <button className="save-btn"
+           onClick={submitNotepadTitle}
+            
+            >Save</button>
+            <button className="del-btn">Delete</button>
           </div>
           <div className="note-title">
-            My Notes <br />
-            <input className="input-title" placeholder="Enter Note Title..." />
+           <h3>My Notes</h3>  <br />
+            <input className="input-title" placeholder="Enter Note Title..."
+            value={noteTitle}
+            onChange={(e) =>
+              setNoteTitle(e.target.value )
+            } />
           </div>
           <div className="note">
-            <input className="input-note" placeholder="Enter Note..." />
+            <input className="input-note" placeholder="Enter Note..."
+            value={note}
+            onChange={(e) =>
+              setNote(e.target.value)
+            } />
           </div>
           <div className="add-btn">
-            <button>Add</button>
+            <button className="add-btn"
+            onClick={submitNote}
+            >Add</button>
           </div>
           <div className="first-note-title">
             <input className="input-title" />
           </div>
           <div className="delete-btn">
-            <button>Delete</button>
+            <button className="del-btn">Delete</button>
           </div>
           <div className="first-note">
             <input className="input-note"  />

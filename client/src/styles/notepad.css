@@ -3,13 +3,30 @@
 }
 
 
+p {
+  display: inline;
+  font-size: 13px;
+  margin-bottom: 5px !important;
+  
+}
 
+h3 {
+  display: inline;
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+button {
+  height: 45px;
+  font-size: 14px;
+}
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px; 
-  background-color: #EEE;
+  border-color: #CCC;
+  background-color: #FFF;
   height:90vh;
   margin-top: 60px !important;
   margin: 30px;
@@ -19,9 +36,9 @@
   display: grid;
   grid-gap:3px;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 80px 60px 150px 60px 60px 300px 60px 300px;
+  grid-template-rows: 80px 80px 150px 60px 60px 300px 60px 300px;
   grid-template-areas:
-  "t t t . . . . . . b b b"
+  "t t t . . . . . b b b b"
   "n n n n n n . . . . . ."
   "o o o o o o . . . . . ."
   "a a . . . . . . . . . ."
@@ -31,7 +48,7 @@
   "sn sn sn sn sn sn sn sn sn sn sn sn";
 
 
-  font-family: Arial;
+  font-family: Arial !important;
   
 }
 
@@ -55,10 +72,12 @@
 .title-btns {
     grid-area: b; 
     display: inline;
+    align-self: center;
 }
 
 .note-title {
     grid-area: n;
+    align-self: end;
 }
 
 .note {
@@ -76,6 +95,7 @@
 
 .delete-btn {
   grid-area: d;
+  margin-right: 10px !important;
 }
 
 .first-note {
@@ -93,10 +113,11 @@
 
 .input-title {
     width:100%;
-    height:30px;
+    height:40px;
     border-color: #CCC;
     border-radius: 4px;
     padding-left: 8px;
+    align-self: end;
       
 }
 
@@ -106,6 +127,45 @@
     border-color: #CCC;
     border-radius: 4px;
     padding-left: 8px;
+}
+
+.stats-btn {
+  background-color: #FFF;
+  border-radius: 5px;
+  border-color: #CCC;
+  font-weight: bolder;
+  width:110px;
+  
+}
+
+.save-btn {
+  background-color: #39ACDC;
+  border-radius: 5px;
+  border-color: #CCC;
+  font-weight: bolder;
+  color: #FFF;
+  margin-right: 7px;
+  margin-left: 7px;
+  width:90px;
+}
+
+.del-btn {
+  background-color: #EC3646;
+  border-radius: 5px;
+  border-color: #CCC;
+  font-weight: bolder;
+  color: #FFF;
+  width:90px;
+}
+
+.add-btn {
+  background-color: #57B93E;
+  border-radius: 5px;
+  border-color: #CCC;
+  font-weight: bolder;
+  color: #FFF;
+  width:90px;
+  align-self: end;
 }
 
 
