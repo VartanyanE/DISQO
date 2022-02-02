@@ -9,7 +9,7 @@ const Notepad = () => {
     const [noteTitle, setNoteTitle] = useState("");
     const [persistNoteTitle, setPersistNoteTitle] = useState("")
     const [note, setNote] = useState("");
-    const [persistNote, setPersistNote] = useState("");
+    const [persistNote, setPersistNote] = useState([]);
 
 
 
@@ -39,6 +39,7 @@ const Notepad = () => {
 
       const submitNote = async (event) => {
           event.preventDefault();
+          const notes = [];
           await setPersistNoteTitle(noteTitle);
           await setPersistNote(note);
           await localStorage.setItem("noteTitle", noteTitle);
@@ -60,6 +61,7 @@ const Notepad = () => {
 
             <input
               className="input-title"
+              maxLength={255}
               placeholder="My notepad title..."
               value={notepadTitle}
               onChange={(e) => setNotepadTitle(e.target.value)}
@@ -98,7 +100,7 @@ const Notepad = () => {
 
           <div className="first-note-title">
             {persistNoteTitle ? (
-              <input className="input-title" placeholder={persistNoteTitle} />
+              <input className="input-title" value={persistNoteTitle} />
             ) : (
               ""
             )}
@@ -112,7 +114,7 @@ const Notepad = () => {
           </div>
           <div className="first-note">
             {persistNoteTitle ? (
-              <input className="input-note" placeholder={persistNote} />
+              <input className="input-note" value={persistNote} />
             ) : (
               ""
             )}
