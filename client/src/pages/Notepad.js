@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {Link} from "react-router-dom";
 
 import "../styles/notepad.css";
 
@@ -10,7 +11,7 @@ const Notepad = () => {
     const [persistNoteTitle, setPersistNoteTitle] = useState([])
     const [note, setNote] = useState("");
     const [persistNote, setPersistNote] = useState([]);
-
+    const [localNotepadTitle, setLocalNotepadTitle] = useState("");
 
 
 //   useEffect(() => {
@@ -22,8 +23,8 @@ const Notepad = () => {
   
     
     
-    console.log(persistNoteTitle);
-    console.log(persistNote);
+    // console.log(persistNoteTitle);
+    console.log(localNotepadTitle);
    
 
 
@@ -58,6 +59,25 @@ const Notepad = () => {
     }
 
 
+  
+ useEffect(()=>{
+const setTitle = ()=> {
+  setLocalNotepadTitle(localStorage.getItem("notepadTitle"));
+  setTitle();
+}},[]);
+
+console.log(localNotepadTitle)
+
+
+
+  // useEffect(()=>{
+  //     localStorage.setItem('notepadTitle', persistnotePadTitle)
+  // },[persistnotePadTitle]);
+
+ 
+
+
+
     return (
       <div className="container">
         <div className="mainTitle">Notepad Application </div>
@@ -75,11 +95,15 @@ const Notepad = () => {
             />
           </div>
           <div className="title-btns">
-            <button className="stats-btn">View Stats</button>
+            <Link to="/gists">
+            
+            <button className="stats-btn">View Stats</button></Link>
+            
+            
             <button className="save-btn" onClick={submitNotepadTitle}>
               Save
             </button>
-            <button className="del-btn" onClick={deleteArray}>Delete</button>
+            <button className="del-btn" onClick={() => setPersistnotePadTitle("")}>Delete</button>
           </div>
           <div className="note-title">
             {persistnotePadTitle ? persistnotePadTitle : <h3>My Notes</h3>}
