@@ -7,7 +7,7 @@ const Notepad = () => {
     const [notepadTitle, setNotepadTitle] = useState();
     const [persistnotePadTitle, setPersistnotePadTitle] = useState("")
     const [noteTitle, setNoteTitle] = useState("");
-    const [persistNoteTitle, setPersistNoteTitle] = useState("")
+    const [persistNoteTitle, setPersistNoteTitle] = useState([])
     const [note, setNote] = useState("");
     const [persistNote, setPersistNote] = useState([]);
 
@@ -22,7 +22,8 @@ const Notepad = () => {
   
     
     
-    console.log(notepadTitle);
+    console.log(persistNoteTitle);
+    console.log(persistNote);
    
 
 
@@ -39,9 +40,9 @@ const Notepad = () => {
 
       const submitNote = async (event) => {
           event.preventDefault();
-          const notes = [];
-          await setPersistNoteTitle(noteTitle);
-          await setPersistNote(note);
+         
+          await setPersistNoteTitle([...persistNoteTitle, noteTitle]);
+          await setPersistNote([...persistNote,  note]);
           await localStorage.setItem("noteTitle", noteTitle);
           await localStorage.setItem("note", note);
 
@@ -49,6 +50,12 @@ const Notepad = () => {
           await setNote("");
 
       }
+    
+    const deleteArray = async () => {
+      
+        await setPersistNote("");
+         setPersistNoteTitle("");
+    }
 
 
     return (
@@ -72,7 +79,7 @@ const Notepad = () => {
             <button className="save-btn" onClick={submitNotepadTitle}>
               Save
             </button>
-            <button className="del-btn" onClick={() => setPersistnotePadTitle("")}>Delete</button>
+            <button className="del-btn" onClick={deleteArray}>Delete</button>
           </div>
           <div className="note-title">
             {persistnotePadTitle ? persistnotePadTitle : <h3>My Notes</h3>}
@@ -99,7 +106,7 @@ const Notepad = () => {
           </div>
 
           <div className="first-note-title">
-            {persistNoteTitle ? (
+            {persistNoteTitle  ? (
               <input className="input-title" value={persistNoteTitle} />
             ) : (
               ""
@@ -107,7 +114,7 @@ const Notepad = () => {
           </div>
           <div className="delete-btn">
             {persistNoteTitle ? (
-              <button className="del-btn" onClick={() => setPersistNoteTitle("")}>Delete</button>
+              <button className="del-btn" onClick={deleteArray}>Delete</button>
             ) : (
               ""
             )}
