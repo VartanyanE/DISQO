@@ -36,7 +36,7 @@ button {
   display: grid;
   grid-gap:3px;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 400px 60px 400px;
+  grid-template-rows: 450px 60px 450px;
   grid-template-areas:
   ". gc gc gc gc gc gc gc gc . . cs"
   ". . . . . lb lb . . . . ."

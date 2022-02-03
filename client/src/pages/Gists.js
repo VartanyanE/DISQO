@@ -31,7 +31,7 @@ function Gists() {
   const [numberOfGists, setNumberOfGists] = useState([]);
 
      useEffect(() => {
-      fetch('https://api.github.com/gists', {
+      fetch('https://api.github.com/gists?per_page=25', {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': "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"
@@ -46,20 +46,25 @@ function Gists() {
   
  
     const loopDates = async () => {
+     
+      
       const createdAt = [];
       const gists = [];
-      for (let i = 0; i < data.length; i++) {
+      for (let i = 0; i < data.length; i+=5) {
         createdAt.push(data[i].created_at);
       }
 
-      for (let i = 0; i < data.length; i++) {
-        gists.push(data.length);
-      }
+
+
+      // for (let i = 0; i < data.length; i++) {
+      //   gists.push(data.length);
+      // }
       setCreatedAtState(createdAt);
       setNumberOfGists(gists)
       console.log(numberOfGists);
-    }
-;
+    };
+
+    console.log(createdAtState);
   
   
   
@@ -75,9 +80,13 @@ const chartData = {
   ],
   datasets: [
     {
-      data: [12, 19],
+      data: [50, 100, 200, 300, 400, 500],
+      label: "Gists Created"
     },
+    
   ],
+
+  
 };
 
 const options={

@@ -38,7 +38,7 @@ button {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 80px 80px 150px 60px 60px 300px 60px 300px;
   grid-template-areas:
-  "t t t . . . . . b b b b"
+  "t t t . . . b b b b b b"
   "n n n n n n . . . . . ."
   "o o o o o o . . . . . ."
   "a a . . . . . . . . . ."
@@ -50,6 +50,109 @@ button {
 
   font-family: Arial !important;
   
+}
+
+
+
+@media (max-width: 768px) {
+  .card {
+    grid-template-areas:
+    "t t t t t t t t t t t t"
+    "b b b b b b b b b b b b"
+    "n n n n n n n n n n n n"
+    "o o o o o o o o o o o o"
+    "a a . . . . . . . . . ."
+    "f f f f f f f f f f f f"
+    "fn fn fn fn fn fn fn fn fn fn fn fn "
+    "d d . . . . . . . . . .";
+
+    grid-template-rows: 80px 80px 90px 150px 60px 60px 160px 60px;
+  }
+
+  
+  .notepad-title{
+    grid-area: t;
+    width: 100%;
+   }
+
+   .title-btns {
+    grid-area: b; 
+    display: inline;
+    align-self: center;
+    justify-items: start;
+    width: 100%;
+    
+}
+
+.note-title {
+  grid-area: n;
+  align-self: start !important;
+}
+
+.note {
+  grid-area: o;
+  width:100%;
+  align-self: start !important;
+}
+
+}
+
+
+@media (max-width: 600px) {
+  .card {
+    grid-template-areas:
+    "t t t t t t t t t t t t"
+    "b b b b b b b b b b b b"
+    "n n n n n n n n n n n n"
+    "o o o o o o o o o o o o"
+    "a a . . . . . . . . . ."
+    "f f f f f f f f f f f f"
+    "fn fn fn fn fn fn fn fn fn fn fn fn "
+    "d d . . . . . . . . . .";
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap:1px;
+  }
+  .notepad-title{
+    grid-area: t;
+    width: 100% !important;
+   }
+
+   .title-btns {
+    grid-area: b; 
+    display: inline;
+    align-self: center;
+    justify-self: center;
+}
+
+.stats-btn {
+  background-color: #FFF;
+  border-radius: 5px;
+  border-color: #CCC;
+  font-weight: bolder;
+  width:90px !important;
+  
+}
+
+.save-btn {
+  background-color: #39ACDC;
+  border-radius: 5px;
+  border-color: #CCC;
+  font-weight: bolder;
+  color: #FFF;
+  margin-right: 7px;
+  margin-left: 7px;
+  width:80px !important;
+}
+
+.del-btn {
+  background-color: #EC3646;
+  border-radius: 5px;
+  border-color: #CCC;
+  font-weight: bolder;
+  color: #FFF;
+  width:80px !important;
+}
+
 }
 
 
@@ -73,6 +176,7 @@ button {
     grid-area: b; 
     display: inline;
     align-self: center;
+    justify-self: end;
 }
 
 .note-title {
@@ -82,6 +186,7 @@ button {
 
 .note {
   grid-area: o;
+  width:100%;
 }
 
 .add-btn{
@@ -102,13 +207,13 @@ button {
  grid-area: fn;
 }
 
-.second-note-title {
+/* .second-note-title {
 
 }
 
 .second-note {
 
-}
+} */
 
 
 .input-title {
@@ -158,7 +263,7 @@ button {
   width:90px;
 }
 
-.add-btn {
+.add-button {
   background-color: #57B93E;
   border-radius: 5px;
   border-color: #CCC;
@@ -190,103 +295,3 @@ button {
 
 
 
-/*
-
-button {
-    font-size: 14px;
-    padding:4px 6px;
-     border-color: #CCC;
-     border-radius: 4px;
-     height:40px;
-     width:90px;
-     margin:5px;
-     
-     
-}
-
-
-
-
-.savebtn {
-    background-color: #39ACDC;
-    border: none;
-}
-
-
-
-.notepad-title-input {
-  grid-column: 1 / span 4;
-  align-self: center;
-  margin-left: 30px;
-}
-
-.note-title-input {
-  grid-column: 1 / span 3;
-  align-self: center;
-  margin-top: 10px;
-  width:400px;
-}
-
-.note-input {
-  grid-column: 1 / span 5;
-  
-  margin-top: 10px;
-  width:400px;
-  height:100px;
-}
-
-.view-stats{
-  grid-column: 10 / span 1;
-  justify-self: end;
-   align-self: center;
-   background-color: #EEE;
-    
-}
-
-.view-stats-btn { 
-    background-color: #EEE;
-}
-
-.save-btn {
-background-color: #39ACDC ;
-color:#EEE;
-border: none;
-}
-
-.delete-btn {
-    background-color: #EC3646;
-    color:#EEE;
-    border: none;
-}
-
-.save{
-  grid-column: 11 / span 1;
-  justify-self: center;  
-   align-self: center;
-}
-
-
-.delete{
-  grid-column: 12 / span 1;
-  justify-self: start; 
-   align-self: center;
-   
-}
-
-.add {
-  grid-column: 1 / span 1;
-  justify-self: start; 
-   align-self: center;
-   margin-left: 30px;
-}
-.add-btn {
-  background-color: #57B93E;
-  color:#EEE;
-  border: none;
-  }
-.notes-heading {
-  grid-column: 1 / span 6;
-  font-size: 18px;
-  margin-top: 20px;
-  margin-left: 30px;
-} */

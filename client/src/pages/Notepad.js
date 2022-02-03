@@ -124,7 +124,7 @@ console.log(localNotepadTitle)
             />
           </div>
           <div className="add-btn">
-            <button className="add-btn" onClick={submitNote}>
+            <button className="add-button" onClick={submitNote}>
               Add
             </button>
           </div>
