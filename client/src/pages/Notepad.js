@@ -38,7 +38,7 @@ const Notepad = () => {
 
 
       }
-
+ 
       const submitNote = async (event) => {
           event.preventDefault();
          

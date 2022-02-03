@@ -26,7 +26,9 @@ import {
 function Gists() {
 
   
-    const [data, setData] = useState([{}])
+  const [data, setData] = useState([{}])
+  const [createdAtState, setCreatedAtState] = useState([]);
+  const [numberOfGists, setNumberOfGists] = useState([]);
 
      useEffect(() => {
       fetch('https://api.github.com/gists', {
@@ -40,16 +42,43 @@ function Gists() {
       
       
 ; 
-  }, []);
+     }, [createdAtState]);
   
-console.log(data);
+ 
+    const loopDates = async () => {
+      const createdAt = [];
+      const gists = [];
+      for (let i = 0; i < data.length; i++) {
+        createdAt.push(data[i].created_at);
+      }
 
-const chartData={
-  labels: ['red','green'],
-  datasets: [ {
-    data: [12,19]
-  }]
-}
+      for (let i = 0; i < data.length; i++) {
+        gists.push(data.length);
+      }
+      setCreatedAtState(createdAt);
+      setNumberOfGists(gists)
+      console.log(numberOfGists);
+    }
+;
+  
+  
+  
+
+
+const chartData = {
+  labels: [
+    createdAtState[0],
+    createdAtState[1],
+    createdAtState[2],
+    createdAtState[3],
+    
+  ],
+  datasets: [
+    {
+      data: [12, 19],
+    },
+  ],
+};
 
 const options={
       title: {
@@ -62,37 +91,26 @@ const options={
 
 
   return (
-  <div className="container">
-    <div className="mainTitle">Notepad Application </div>
-    <div className="card-gists">
-
-    <div className="stats-button">
-    <Link to="/">
-            
-            <button className="close-stats-btn">Close Stats</button></Link>
-
-  </div>
-   <div className="gist-chart">
-    <Line 
-    data={chartData}
-    options={options} />
-  </div>
-
-
-  <div className="gist-chart-files">
-    <Line 
-    data={chartData}
-    options={options} />
-  </div>
-  </div>
-
- 
-  
-  
-  
-  </div>
-  
-    )
+    <div className="container">
+      <div className="mainTitle">Notepad Application </div>
+      <div className="card-gists">
+        <div className="stats-button">
+          <Link to="/">
+            <button className="close-stats-btn">Close Stats</button>
+          </Link>
+        </div>
+        <div className="gist-chart">
+          <Line data={chartData} options={options} />
+        </div>
+        <div className="load-btn">
+          <button className="load-more-btn" onClick={loopDates}>Load More</button>
+        </div>
+        <div className="gist-chart-files">
+          <Line data={chartData} options={options} />
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Gists;

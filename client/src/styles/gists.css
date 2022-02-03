@@ -36,11 +36,11 @@ button {
   display: grid;
   grid-gap:3px;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 500px 500px;
+  grid-template-rows: 400px 60px 400px;
   grid-template-areas:
   ". gc gc gc gc gc gc gc gc . . cs"
+  ". . . . . lb lb . . . . ."
   ". gfc gfc gfc gfc gfc gfc gfc gfc . . .";
-
 
 
   font-family: Arial !important;
@@ -68,7 +68,19 @@ button {
     font-weight: bolder;
     width:110px;
     
+    }
+
+    .load-more-btn {
+    background-color: #FFF;
+    border-radius: 5px;
+    border-color: #CCC;
+    font-weight: bolder;
+    width:110px;
     
+  }
+
+  .load-btn {
+    grid-area: lb
   }
 
   .gist-chart {
