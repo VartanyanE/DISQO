@@ -27,7 +27,7 @@ button {
   border-radius: 5px; 
   border-color: #CCC;
   background-color: #FFF;
-  height:90vh;
+  height:1000px;
   margin-top: 60px !important;
   margin: 30px;
   padding-left: 30px;
@@ -36,10 +36,10 @@ button {
   display: grid;
   grid-gap:3px;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 300px 300px;
+  grid-template-rows: 500px 500px;
   grid-template-areas:
-  ". . . . . . . . . . . cs"
-  ". . . . . . . . . . . .";
+  ". gc gc gc gc gc gc gc gc . . cs"
+  ". gfc gfc gfc gfc gfc gfc gfc gfc . . .";
 
 
 
@@ -70,6 +70,15 @@ button {
     
     
   }
+
+  .gist-chart {
+      grid-area: gc
+  }
+
+
+  .gist-chart-files {
+    grid-area: gfc
+}
 
 /*  
 .notepad-title{
