@@ -45,15 +45,13 @@ function Gists() {
       createdAt.push(data[i].created_at);
     }
 
-    // for (let i = 0; i < data.length; i++) {
-    //   gists.push(data.length);
-    // }
+   
     setCreatedAtState(createdAt);
     setNumberOfGists(gists);
-    console.log(numberOfGists);
+    
   };
 
-  console.log(createdAtState);
+ 
 
   const chartData = {
     labels: [

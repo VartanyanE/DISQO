@@ -1,28 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 import "../styles/notepad.css";
 
 const Notepad = () => {
   const [notepadTitle, setNotepadTitle] = useState();
-  const [persistnotePadTitle, setPersistnotePadTitle] = useState("");
+  const [persistnotePadTitle, setPersistnotePadTitle] = useState(false);
   const [noteTitle, setNoteTitle] = useState("");
   const [persistNoteTitle, setPersistNoteTitle] = useState([]);
   const [note, setNote] = useState("");
   const [persistNote, setPersistNote] = useState([]);
-  const [localNotepadTitle, setLocalNotepadTitle] = useState("");
 
+ 
   useEffect(() => {
-    const theme = localStorage.getItem("notepadTitle") === "true";
-    const parsedData = JSON.parse(theme);
-    console.log(parsedData);
-  }, []);
+    
+      if(localStorage.getItem("notepadTitle") != ""){
+      setPersistnotePadTitle(true)
 
-  useEffect(() => {
-    const setTitle = () => {
-      setLocalNotepadTitle(localStorage.getItem("notepadTitle"));
-      setTitle();
-    };
+      };
   }, []);
 
   const submitNotepadTitle = async (event) => {
@@ -52,11 +46,15 @@ const Notepad = () => {
     await localStorage.setItem("note", "");
   };
 
-  console.log(localNotepadTitle);
+  const deleteTitle = async () => {
+    await setPersistnotePadTitle("");
 
-  // useEffect(()=>{
-  //     localStorage.setItem('notepadTitle', persistnotePadTitle)
-  // },[persistnotePadTitle]);
+   await localStorage.setItem("notepadTitle", "");
+
+  }
+
+
+ 
 
   return (
     <div className="container">
@@ -84,7 +82,7 @@ const Notepad = () => {
           </button>
           <button
             className="del-btn"
-            onClick={() => setPersistnotePadTitle("")}
+            onClick={deleteTitle}
           >
             Delete
           </button>
